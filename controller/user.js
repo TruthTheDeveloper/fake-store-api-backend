@@ -47,20 +47,20 @@ module.exports.addUser = (req, res) => {
       username:req.body.username,
       password:req.body.password,
       name:{
-          firstname:req.body.firstname,
-          lastname:req.body.lastname
+          firstname:req.body.name.firstname,
+          lastname:req.body.name.lastname
       },
-      // address:{
-      //     city:req.body.address.city,
-      //     street:req.body.address.street,
-      //     number:req.body.number,
-      //     zipcode:req.body.zipcode,
-      //     geolocation:{
-      //         lat:req.body.geolocation.lat,
-      //         long:req.body.geolocation.long
-      //     }
-      // },
-      // phone:req.body.phone
+      address:{
+          city:req.body.address.city,
+          street:req.body.address.street,
+          number:req.body.number,
+          zipcode:req.body.zipcode,
+          geolocation:{
+              lat:req.body.address.geolocation.lat,
+              long:req.body.address.geolocation.long
+          }
+      },
+      phone:req.body.phone
         })
         user.save()
           .then(user => {
